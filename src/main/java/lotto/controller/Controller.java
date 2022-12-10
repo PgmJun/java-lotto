@@ -18,15 +18,6 @@ public abstract class Controller {
 
     public abstract void run();
 
-    protected <T> T repeat(Supplier<T> inputReader) {
-        try {
-            return inputReader.get();
-        } catch (IllegalArgumentException error) {
-            printError(error);
-            return repeat(inputReader);
-        }
-    }
-
     private void printError(Exception error) {
         outputView.printError(error);
     }
