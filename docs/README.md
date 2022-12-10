@@ -10,6 +10,7 @@
   - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickUniqueNumbersInRange()`를 활용한다.
   - 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
 - [ ] 당첨 로또와 보너스 번호를 생성하는 기능을 구현한다.
+  - [ ] ⚠️ 로또번호가 6개가 아니면 예외를 발생한다.
   - [ ] ⚠️ 로또번호가 1~45가 아니면 예외가 발생한다.
   - [ ] ⚠️ 번호가 중복되면 예외가 발생한다.
   - [ ] ⚠️ 보너스 번호가 로또 번호에 포함되어 있으면 예외가 발생한다.
