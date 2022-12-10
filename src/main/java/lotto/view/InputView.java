@@ -1,11 +1,8 @@
 package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import lotto.domain.Money;
-import lotto.util.Validator;
 
 public class InputView {
-    private final Validator validator = new Validator();
     private final OutputView outputView = new OutputView();
 
     public String inputPurchaseAmount() {

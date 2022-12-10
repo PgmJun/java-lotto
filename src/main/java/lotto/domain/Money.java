@@ -1,6 +1,6 @@
 package lotto.domain;
 
-import static lotto.util.Validator.ERROR_PREFIX;
+import static lotto.util.Constant.ERROR_PREFIX;
 
 public class Money {
     private int amount;
@@ -15,12 +15,12 @@ public class Money {
         try {
             return Integer.parseInt(money);
         } catch (NumberFormatException error) {
-            throw new IllegalArgumentException(ERROR_PREFIX+"입력하신 금액이 정수형이 아닙니다.");
+            throw new IllegalArgumentException(ERROR_PREFIX + "입력하신 금액이 정수형이 아닙니다.");
         }
     }
 
     private void validateMoneyBound(int amount) {
-        if(amount < 0 || amount % 1000 != 0) {
+        if (amount < 0 || amount % 1000 != 0) {
             throw new IllegalArgumentException(ERROR_PREFIX + "금액의 입력값이 잘못되었습니다.");
         }
     }

@@ -1,8 +1,8 @@
 package lotto.domain;
 
-import static lotto.util.Validator.ERROR_PREFIX;
+import static lotto.util.Constant.ERROR_PREFIX;
 
-public class LottoNumber implements Comparable<LottoNumber>{
+public class LottoNumber implements Comparable<LottoNumber> {
     private int number;
 
     public LottoNumber(int number) {
@@ -11,7 +11,7 @@ public class LottoNumber implements Comparable<LottoNumber>{
     }
 
     private void validateLottoNumberBound(int number) {
-        if(number >=1 && number <= 45) {
+        if (number >= 1 && number <= 45) {
             return;
         }
         throw new IllegalArgumentException(ERROR_PREFIX + "로또번호의 범위가 잘못되었습니다.");
