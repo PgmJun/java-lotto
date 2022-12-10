@@ -10,6 +10,16 @@ public class InputView {
         return read();
     }
 
+    public String inputWinningLottoNumber() {
+        outputView.println("당첨 번호를 입력해 주세요.");
+        return read();
+    }
+
+    public String inputBonusNumber() {
+        outputView.println("보너스 번호를 입력해 주세요.");
+        return read();
+    }
+
     private String read() {
         return Console.readLine();
     }

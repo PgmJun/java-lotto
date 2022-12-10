@@ -6,8 +6,13 @@ import lotto.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
-        LottoController lottoController = new LottoController(new InputView(), new OutputView());
-        lottoController.run();
+        OutputView outputView = new OutputView();
+
+        try {
+            LottoController lottoController = new LottoController(new InputView(), outputView);
+            lottoController.run();
+        } catch (IllegalArgumentException error) {
+            outputView.printError(error);
+        }
     }
 }
