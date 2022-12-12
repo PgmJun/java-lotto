@@ -1,10 +1,9 @@
 package lotto.domain;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public enum LottoResult{
+public enum LottoResult {
     FIFTH_PRICE(3, 5_000),
     FOURTH_PRICE(4, 50_000),
     THIRD_PRICE(5, 1_500_000),

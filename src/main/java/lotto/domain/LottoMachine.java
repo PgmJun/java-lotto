@@ -10,7 +10,7 @@ public class LottoMachine {
 
     public List<Lotto> generateLottos(Money money) {
         List<Lotto> purchaseLottos = new ArrayList<>();
-        for(int i = 0;i < getLottoCount(money); i++) {
+        for (int i = 0; i < getLottoCount(money); i++) {
             List<Integer> lottoNumbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
             purchaseLottos.add(generateLotto(lottoNumbers));
         }

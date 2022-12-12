@@ -28,11 +28,12 @@ public class Lotto {
             throw new IllegalArgumentException(ERROR_PREFIX + "로또 번호는 6개여야 합니다.");
         }
     }
+
     private void validateNumberDuplication(List<Integer> numbers) {
         List<Integer> removeDuplcationNumbers = numbers.stream()
                 .distinct()
                 .collect(Collectors.toList());
-        if(removeDuplcationNumbers.size() != 6) {
+        if (removeDuplcationNumbers.size() != 6) {
             throw new IllegalArgumentException(ERROR_PREFIX + "중복되는 로또 번호가 존재합니다.");
         }
     }

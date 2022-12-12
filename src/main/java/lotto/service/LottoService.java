@@ -64,7 +64,7 @@ public class LottoService {
     private int getHitCount(Lotto winningLottoNumbers, Lotto lotto) {
         int hitCount = 0;
         for (LottoNumber number : lotto.getNumbers()) {
-            if(winningLottoNumbers.numberHitCheck(number)){
+            if (winningLottoNumbers.numberHitCheck(number)) {
                 hitCount++;
             }
         }
@@ -81,13 +81,11 @@ public class LottoService {
 
     private Double calcTotalReward(LinkedHashMap<LottoResult, Integer> lottoResult) {
         int totalReward = 0;
+
         for (LottoResult result : lottoResult.keySet()) {
             Integer hit = lottoResult.get(result);
             totalReward += hit * result.getReward();
         }
-
         return Double.valueOf(totalReward);
     }
-
-
 }

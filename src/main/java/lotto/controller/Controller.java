@@ -4,8 +4,6 @@ import lotto.service.LottoService;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
-import java.util.function.Supplier;
-
 public abstract class Controller {
 
     protected InputView inputView;

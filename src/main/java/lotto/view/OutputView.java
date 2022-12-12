@@ -4,7 +4,6 @@ import lotto.domain.Lotto;
 import lotto.domain.LottoNumber;
 import lotto.domain.LottoResult;
 
-import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.StringJoiner;
@@ -42,9 +41,9 @@ public class OutputView {
     private void printRank(LottoResult lottoResult, int count) {
         String reward = changeRewardFormat(lottoResult);
 
-        if(lottoResult == LottoResult.SECOND_PRICE) {
-            System.out.printf("%d개 일치, 보너스 볼 일치 (%s원) - %d개",lottoResult.getHit(), reward, count);
-        } else if(lottoResult != LottoResult.SECOND_PRICE) {
+        if (lottoResult == LottoResult.SECOND_PRICE) {
+            System.out.printf("%d개 일치, 보너스 볼 일치 (%s원) - %d개", lottoResult.getHit(), reward, count);
+        } else if (lottoResult != LottoResult.SECOND_PRICE) {
             System.out.printf("%d개 일치 (%s원) - %d개", lottoResult.getHit(), reward, count);
         }
         printEnter();
@@ -53,8 +52,6 @@ public class OutputView {
     public void printBenefit(Double benefit) {
         System.out.printf("총 수익률은 %.1f%%입니다.", benefit);
     }
-
-
 
     public void printError(Exception error) {
         System.out.println(error.getMessage());
