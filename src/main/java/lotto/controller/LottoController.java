@@ -1,14 +1,14 @@
 package lotto.controller;
 
-import lotto.domain.Lotto;
-import lotto.domain.LottoMachine;
-import lotto.domain.LottoNumber;
-import lotto.domain.Money;
+import lotto.domain.*;
+import lotto.service.LottoService;
 import lotto.util.Validator;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,8 +16,8 @@ public class LottoController extends Controller{
     private final LottoMachine lottoMachine = new LottoMachine();
     private final Validator validator = new Validator();
 
-    public LottoController(InputView inputView, OutputView outputView) {
-        super(inputView, outputView);
+    public LottoController(LottoService lottoService, InputView inputView, OutputView outputView) {
+        super(lottoService, inputView, outputView);
     }
 
     @Override
@@ -27,10 +27,13 @@ public class LottoController extends Controller{
         List<Lotto> lottos = purchaseLotto(lottoMachine, money);
 
         Lotto winningLotto = makeWinningLotto();
-
         LottoNumber bonusNumber = makeBonusNumber(winningLotto);
 
+        LinkedHashMap<LottoResult, Integer> lottoResult = lottoService.getLottoResult(lottos, winningLotto, bonusNumber);
+        outputView.printLottoRank(lottoResult);
 
+        Double benefit = lottoService.calcBenefit(lottoResult, money);
+        outputView.printBenefit(benefit);
     }
 
     private Lotto makeWinningLotto() {

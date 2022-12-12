@@ -1,6 +1,7 @@
 package lotto;
 
 import lotto.controller.LottoController;
+import lotto.service.LottoService;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -9,7 +10,7 @@ public class Application {
         OutputView outputView = new OutputView();
 
         try {
-            LottoController lottoController = new LottoController(new InputView(), outputView);
+            LottoController lottoController = new LottoController(new LottoService(), new InputView(), outputView);
             lottoController.run();
         } catch (IllegalArgumentException error) {
             outputView.printError(error);

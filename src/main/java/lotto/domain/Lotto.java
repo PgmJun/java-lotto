@@ -54,5 +54,12 @@ public class Lotto {
         return numbers;
     }
 
+    public boolean numberHitCheck(LottoNumber lottoNumber) {
+        return numbers.stream()
+                .filter(number -> number.getNumber() == lottoNumber.getNumber())
+                .findAny()
+                .isPresent();
+    }
+
 
 }
