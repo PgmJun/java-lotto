@@ -21,14 +21,17 @@ public class LottoController extends Controller{
 
     @Override
     public void run() {
+        try {
+            Money money = payLottoPrice();
+            List<Lotto> lottos = purchaseLotto(lottoMachine, money);
+            Lotto winningLotto = generateWiningLotto();
+            LottoNumber bonusNumber = generateBonusNumber(winningLotto);
 
-        Money money = payLottoPrice();
-        List<Lotto> lottos = purchaseLotto(lottoMachine, money);
-        Lotto winningLotto = generateWiningLotto();
-        LottoNumber bonusNumber = generateBonusNumber(winningLotto);
-
-        LinkedHashMap<LottoResult, Integer> lottoResult = getLottoResult(lottos, winningLotto, bonusNumber);
-        calcBenefit(money, lottoResult);
+            LinkedHashMap<LottoResult, Integer> lottoResult = getLottoResult(lottos, winningLotto, bonusNumber);
+            calcBenefit(money, lottoResult);
+        } catch (IllegalArgumentException error) {
+            printError(error);
+        }
     }
 
     private void calcBenefit(Money money, LinkedHashMap<LottoResult, Integer> lottoResult) {

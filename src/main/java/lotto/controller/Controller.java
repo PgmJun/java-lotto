@@ -19,7 +19,7 @@ public abstract class Controller {
 
     public abstract void run();
 
-    private void printError(Exception error) {
+    protected void printError(Exception error) {
         outputView.printError(error);
     }
 }
